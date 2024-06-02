@@ -1,4 +1,4 @@
-# deque [![JSR](https://jsr.io/badges/@korkje/dfr)](https://jsr.io/@korkje/dfr)
+# deque [![JSR](https://jsr.io/badges/@korkje/deque)](https://jsr.io/@korkje/deque)
 
 Double-ended queue implementation, based on [Denque](https://github.com/invertase/denque).
 
