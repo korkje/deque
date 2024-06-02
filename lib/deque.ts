@@ -4,6 +4,9 @@ type Params<T> =
   | [array: T[]]
   | [array: T[], capacity: number];
 
+/**
+ * Double-ended queue (deque) implementation.
+ */
 export class Deque<T> {
   #capacity: number | undefined = undefined;
   #head = 0;
