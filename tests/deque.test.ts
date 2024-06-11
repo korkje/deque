@@ -1,5 +1,5 @@
 import { assert, assertEquals } from "@std/assert";
-import Deque from "../lib/deque.ts";
+import Deque from "lib/deque.ts";
 
 Deno.test("Deque.prototype.constructor", function () {
   Deno.test("should take no argument", function () {
@@ -36,11 +36,6 @@ Deno.test("Deque.prototype.constructor", function () {
       deque.shift();
     }
 
-    // console.log(deque._list.length);
-    // console.log(deque.length);
-    // console.log(deque._head);
-    // console.log(deque._tail);
-
     deque.clear();
     l = 100_000;
 
@@ -58,11 +53,6 @@ Deno.test("Deque.prototype.constructor", function () {
       deque.pop();
       deque.pop();
     }
-
-    // console.log(deque._list.length);
-    // console.log(deque.length);
-    // console.log(deque._head);
-    // console.log(deque._tail);
   });
 });
 
@@ -82,7 +72,6 @@ Deno.test("Deque.prototype.push", function () {
 
   Deno.test("Should add falsey elements (except undefined)", function () {
     const a = new Deque();
-    // var before = a.length;
     let ret = a.push(0);
     assertEquals(ret, 1);
     assertEquals(a.length, 1);
@@ -114,69 +103,17 @@ Deno.test("Deque.prototype.push", function () {
     assert(ret === before + 1);
     assert(a.length === ret);
     assert(ret === 16);
-    assertEquals(a.toArray(), [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      1,
-    ]);
+    assertEquals(a.toArray(), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1]);
   });
 
   Deno.test("Should add single argument - over capacity", function () {
-    const a = new Deque([
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-    ]);
+    const a = new Deque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
     const before = a.length;
     const ret = a.push(1);
     assert(ret === before + 1);
     assert(a.length === ret);
     assert(ret === 17);
-    assertEquals(a.toArray(), [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      1,
-    ]);
+    assertEquals(a.toArray(), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1]);
   });
 
   Deno.test("should respect capacity", function () {
@@ -231,69 +168,17 @@ Deno.test("Deque.prototype.unshift", function () {
     assert(ret === before + 1);
     assert(a.length === ret);
     assert(ret === 16);
-    assertEquals(a.toArray(), [
-      1,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-    ]);
+    assertEquals(a.toArray(), [1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
   });
 
   Deno.test("Should add single argument - over capacity", function () {
-    const a = new Deque([
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-    ]);
+    const a = new Deque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
     const before = a.length;
     const ret = a.unshift(1);
     assert(ret === before + 1);
     assert(a.length === ret);
     assert(ret === 17);
-    assertEquals(a.toArray(), [
-      1,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-    ]);
+    assertEquals(a.toArray(), [1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
   });
 
   Deno.test("should respect capacity", function () {
